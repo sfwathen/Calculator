@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 public class Calculator extends Application {
 
-    Label Label1;
+    Label label1;
     Button zero;
     Button one;
     Button two;
@@ -43,7 +43,7 @@ public class Calculator extends Application {
     @Override
     public void start(Stage stage) {
         stage.setTitle("JavaFX Calculator");
-        Label1 = new Label("input calculation");
+        label1 = new Label("input calculation");
         VBox root = new VBox();
         HBox row1 = new HBox();
         HBox row2 = new HBox();
@@ -55,342 +55,8 @@ public class Calculator extends Application {
         Scene scene = new Scene(root, 200, 300);
         stage.setScene(scene);
 
-        zero = new Button("0");
-        zero.setOnAction(new EventHandler<ActionEvent>() {
-
-            public void handle(ActionEvent actionEvent) {
-                if (afterEqual) {
-                    fullOp = "0";
-                    firstNum = "0";
-                    afterEqual = false;
-                }
-                else if (stillFirst) {
-                    firstNum += "0";
-                    fullOp += "0";
-                }
-                else {
-                    secondNum += "0";
-                    fullOp += "0";
-                }
-                Label1.setText(fullOp);
-            }
-        });
-
-        one = new Button("1");
-        one.setOnAction(new EventHandler<ActionEvent>() {
-
-            public void handle(ActionEvent actionEvent) {
-                if (afterEqual) {
-                    fullOp = "1";
-                    firstNum = "1";
-                    afterEqual = false;
-                }
-                else if (stillFirst) {
-                    firstNum += "1";
-                    fullOp += "1";
-                }
-                else {
-                    secondNum += "1";
-                    fullOp += "1";
-                }
-                Label1.setText(fullOp);
-            }
-        });
-
-        two = new Button("2");
-        two.setOnAction(new EventHandler<ActionEvent>() {
-
-            public void handle(ActionEvent actionEvent) {
-                if (afterEqual) {
-                    fullOp = "2";
-                    firstNum = "2";
-                    afterEqual = false;
-                }
-                else if (stillFirst) {
-                    firstNum += "2";
-                    fullOp += "2";
-                }
-                else {
-                    secondNum += "2";
-                    fullOp += "2";
-                }
-                Label1.setText(fullOp);
-            }
-        });
-
-        three = new Button("3");
-        three.setOnAction(new EventHandler<ActionEvent>() {
-
-            public void handle(ActionEvent actionEvent) {
-                if (afterEqual) {
-                    fullOp = "3";
-                    firstNum = "3";
-                    afterEqual = false;
-                }
-                else if (stillFirst) {
-                    firstNum += "3";
-                    fullOp += "3";
-                }
-                else {
-                    secondNum += "3";
-                    fullOp += "3";
-                }
-                Label1.setText(fullOp);
-            }
-        });
-
-        four = new Button("4");
-        four.setOnAction(new EventHandler<ActionEvent>() {
-
-            public void handle(ActionEvent actionEvent) {
-                if (afterEqual) {
-                    firstNum = "4";
-                    fullOp = "4";
-                    afterEqual = false;
-                }
-                else if (stillFirst) {
-                    firstNum += "4";
-                    fullOp += "4";
-                }
-                else {
-                    secondNum += "4";
-                    fullOp += "4";
-                }
-                Label1.setText(fullOp);
-            }
-        });
-
-        five = new Button("5");
-        five.setOnAction(new EventHandler<ActionEvent>() {
-
-            public void handle(ActionEvent actionEvent) {
-                if (afterEqual) {
-                    firstNum = "5";
-                    fullOp = "5";
-                    afterEqual = false;
-                }
-                else if (stillFirst) {
-                    firstNum += "5";
-                    fullOp += "5";
-                }
-                else {
-                    secondNum += "5";
-                    fullOp += "5";
-                }
-                Label1.setText(fullOp);
-            }
-        });
-
-        six = new Button("6");
-        six.setOnAction(new EventHandler<ActionEvent>() {
-
-            public void handle(ActionEvent actionEvent) {
-                if (afterEqual) {
-                    firstNum = "6";
-                    fullOp = "6";
-                    afterEqual = false;
-                }
-                else if (stillFirst) {
-                    firstNum += "6";
-                    fullOp += "6";
-                }
-                else {
-                    secondNum += "6";
-                    fullOp += "6";
-                }
-                Label1.setText(fullOp);
-            }
-        });
-
-        seven = new Button("7");
-        seven.setOnAction(new EventHandler<ActionEvent>() {
-
-            public void handle(ActionEvent actionEvent) {
-                if (afterEqual) {
-                    firstNum = "7";
-                    fullOp = "7";
-                    afterEqual = false;
-                }
-                else if (stillFirst) {
-                    firstNum += "7";
-                    fullOp += "7";
-                }
-                else {
-                    secondNum += "7";
-                    fullOp += "7";
-                }
-                Label1.setText(fullOp);
-            }
-        });
-
-        eight = new Button("8");
-        eight.setOnAction(new EventHandler<ActionEvent>() {
-
-            public void handle(ActionEvent actionEvent) {
-                if (afterEqual) {
-                    firstNum = "8";
-                    fullOp = "8";
-                    afterEqual = false;
-                }
-                else if (stillFirst) {
-                    firstNum += "8";
-                    fullOp += "8";
-                }
-                else {
-                    secondNum += "8";
-                    fullOp += "8";
-                }
-                Label1.setText(fullOp);
-            }
-        });
-
-        nine = new Button("9");
-        nine.setOnAction(new EventHandler<ActionEvent>() {
-
-            public void handle(ActionEvent actionEvent) {
-                if (afterEqual) {
-                    firstNum = "9";
-                    fullOp = "9";
-                    afterEqual = false;
-                }
-                else if (stillFirst) {
-                    firstNum += "9";
-                    fullOp += "9";
-                }
-                else {
-                    secondNum += "9";
-                    fullOp += "9";
-                }
-                Label1.setText(fullOp);
-            }
-        });
-
-        neg = new Button("neg");
-        neg.setOnAction(new EventHandler<ActionEvent>() {
-
-            public void handle(ActionEvent actionEvent) {
-                if (firstNum.equals("")) {
-                    firstNum = "-";
-                    fullOp = "-";
-                    afterEqual = false;
-                }
-                else if (secondNum.equals("") && !stillFirst) {
-                    secondNum += "-";
-                    fullOp += "-";
-                }
-                else {
-                    System.out.println("Please make numbers negative at the start.");
-                }
-                Label1.setText(fullOp);
-            }
-        });
-
-        clear = new Button("C");
-        clear.setOnAction(new EventHandler<ActionEvent>() {
-
-            public void handle(ActionEvent actionEvent) {
-                firstNum = "";
-                secondNum = "";
-                operation = "";
-                fullOp = "";
-                stillFirst = true;
-                Label1.setText("input calculation");
-            }
-        });
-
-        plus = new Button("+");
-        plus.setOnAction(new EventHandler<ActionEvent>() {
-
-            public void handle(ActionEvent actionEvent) {
-                if (stillFirst) {
-                    operation = "+";
-                    fullOp += " + ";
-                    stillFirst = false;
-                    afterEqual = false;
-                }
-                Label1.setText(fullOp);
-            }
-        });
-
-        minus = new Button("-");
-        minus.setOnAction(new EventHandler<ActionEvent>() {
-
-            public void handle(ActionEvent actionEvent) {
-                if (stillFirst) {
-                    operation = "-";
-                    fullOp += " - ";
-                    stillFirst = false;
-                    afterEqual = false;
-                }
-                Label1.setText(fullOp);
-            }
-        });
-
-        multiply = new Button("x");
-        multiply.setOnAction(new EventHandler<ActionEvent>() {
-
-            public void handle(ActionEvent actionEvent) {
-                if (stillFirst) {
-                    operation = "x";
-                    fullOp += " x ";
-                    stillFirst = false;
-                    afterEqual = false;
-                }
-                Label1.setText(fullOp);
-            }
-        });
-
-        divide = new Button("/");
-        divide.setOnAction(new EventHandler<ActionEvent>() {
-
-            public void handle(ActionEvent actionEvent) {
-                if (stillFirst) {
-                    operation = "/";
-                    fullOp += " / ";
-                    stillFirst = false;
-                    afterEqual = false;
-                }
-                Label1.setText(fullOp);
-            }
-        });
-
-        equal = new Button("=");
-        equal.setOnAction(new EventHandler<ActionEvent>() {
-
-            public void handle(ActionEvent actionEvent) {
-                long first, second, ans = 0;
-                switch (operation) {
-                    case "+":
-                        first = Long.parseLong(firstNum);
-                        second = Long.parseLong(secondNum);
-                        ans = first + second;
-                        break;
-                    case "-":
-                        first = Long.parseLong(firstNum);
-                        second = Long.parseLong(secondNum);
-                        ans = first - second;
-                        break;
-                    case "x":
-                        first = Long.parseLong(firstNum);
-                        second = Long.parseLong(secondNum);
-                        ans = first * second;
-                        break;
-                    case "/":
-                        first = Long.parseLong(firstNum);
-                        second = Long.parseLong(secondNum);
-                        ans = first / second;
-                        break;
-                }
-                String answer = Long.toString(ans);
-                Label1.setText(answer);
-                secondNum = "";
-                operation = "";
-                firstNum = answer;
-                fullOp = answer;
-                stillFirst = true;
-                afterEqual = true;
-            }
-        });
+        createButtons();
+        updateAllButtons();
 
         zero.setMinWidth(40);
         zero.setMinHeight(40);
@@ -426,10 +92,10 @@ public class Calculator extends Application {
         equal.setMinHeight(40);
         neg.setMinWidth(160);
         neg.setMinHeight(40);
-        Label1.setMinHeight(40);
+        label1.setMinHeight(40);
 
 
-        row1.getChildren().add(Label1);
+        row1.getChildren().add(label1);
         row2.getChildren().addAll(one, two, three, plus);
         row3.getChildren().addAll(four, five, six, minus);
         row4.getChildren().addAll(seven, eight, nine, multiply);
@@ -437,5 +103,177 @@ public class Calculator extends Application {
         row6.getChildren().add(neg);
         root.getChildren().addAll(row1, row6, row2, row3, row4, row5);
         stage.show();
+    }
+
+    public void buttonFunctionality(Button button) {
+        if (button.getId().equals("=")) {
+            button.setOnAction(actionEvent -> {
+                long first;
+                long second;
+                long ans = 0;
+                switch (operation) {
+                    case "+" -> {
+                        first = Long.parseLong(firstNum);
+                        second = Long.parseLong(secondNum);
+                        ans = first + second;
+                    }
+                    case "-" -> {
+                        first = Long.parseLong(firstNum);
+                        second = Long.parseLong(secondNum);
+                        ans = first - second;
+                    }
+                    case "x" -> {
+                        first = Long.parseLong(firstNum);
+                        second = Long.parseLong(secondNum);
+                        ans = first * second;
+                    }
+                    case "/" -> {
+                        first = Long.parseLong(firstNum);
+                        second = Long.parseLong(secondNum);
+                        if (second != 0) {
+                            ans = first / second;
+                        }
+                    }
+                }
+                String answer = Long.toString(ans);
+                label1.setText(answer);
+                secondNum = "";
+                operation = "";
+                firstNum = answer;
+                fullOp = answer;
+                stillFirst = true;
+                afterEqual = true;
+            });
+        }
+        else if (button.getId().equals("neg")) {
+            button.setOnAction(actionEvent -> {
+                if (firstNum.equals("")) {
+                    firstNum = "-";
+                    fullOp = "-";
+                    afterEqual = false;
+                }
+                else if (secondNum.equals("") && !stillFirst) {
+                    secondNum += "-";
+                    fullOp += "-";
+                }
+                else {
+                    System.out.println("Please make numbers negative at the start.");
+                }
+                label1.setText(fullOp);
+            });
+        }
+        else if (button.getId().equals("C")) {
+            clear.setOnAction(actionEvent -> {
+                firstNum = "";
+                secondNum = "";
+                operation = "";
+                fullOp = "";
+                stillFirst = true;
+                label1.setText("input calculation");
+            });
+        }
+        else if (button.getId().equals("+") || button.getId().equals("-") || button.getId().equals("x") || button.getId().equals("/")) {
+            button.setOnAction(actionEvent -> {
+                if (stillFirst) {
+                    operation = button.getId();
+                    fullOp += " " + button.getId() + " ";
+                    stillFirst = false;
+                    afterEqual = false;
+                }
+                label1.setText(fullOp);
+            });
+        }
+        else {
+            button.setOnAction(actionEvent -> {
+                if (afterEqual) {
+                    firstNum = button.getId();
+                    fullOp = button.getId();
+                    afterEqual = false;
+                }
+                else if (stillFirst) {
+                    firstNum += button.getId();
+                    fullOp += button.getId();
+                }
+                else {
+                    secondNum += button.getId();
+                    fullOp += button.getId();
+                }
+                label1.setText(fullOp);
+            });
+        }
+
+    }
+
+    public void updateAllButtons() {
+        buttonFunctionality(zero);
+        buttonFunctionality(one);
+        buttonFunctionality(two);
+        buttonFunctionality(three);
+        buttonFunctionality(four);
+        buttonFunctionality(five);
+        buttonFunctionality(six);
+        buttonFunctionality(seven);
+        buttonFunctionality(eight);
+        buttonFunctionality(nine);
+        buttonFunctionality(neg);
+        buttonFunctionality(plus);
+        buttonFunctionality(minus);
+        buttonFunctionality(multiply);
+        buttonFunctionality(divide);
+        buttonFunctionality(clear);
+        buttonFunctionality(equal);
+    }
+
+    public void createButtons() {
+        zero = new Button("0");
+        zero.setId("0");
+
+        one = new Button("1");
+        one.setId("1");
+
+        two = new Button("2");
+        two.setId("2");
+
+        three = new Button("3");
+        three.setId("3");
+
+        four = new Button("4");
+        four.setId("4");
+
+        five = new Button("5");
+        five.setId("5");
+
+        six = new Button("6");
+        six.setId("6");
+
+        seven = new Button("7");
+        seven.setId("7");
+
+        eight = new Button("8");
+        eight.setId("8");
+
+        nine = new Button("9");
+        nine.setId("9");
+
+        neg = new Button("neg");
+        neg.setId("neg");
+
+        clear = new Button("C");
+        clear.setId("C");
+
+        plus = new Button("+");
+        plus.setId("+");
+
+        minus = new Button("-");
+        minus.setId("-");
+
+        multiply = new Button("x");
+        multiply.setId("x");
+
+        divide = new Button("/");
+        divide.setId("/");
+
+        equal = new Button("=");
+        equal.setId("=");
     }
 }
