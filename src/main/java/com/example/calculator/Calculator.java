@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import java.lang.Math;
 
 public class Calculator extends Application {
 
@@ -29,6 +30,7 @@ public class Calculator extends Application {
     Button equal;
     Button clear;
     Button neg;
+    Button logb10;
     String firstNum = "";
     String secondNum = "";
     String operation = "";
@@ -90,8 +92,10 @@ public class Calculator extends Application {
         clear.setMinHeight(40);
         equal.setMinWidth(40);
         equal.setMinHeight(40);
-        neg.setMinWidth(160);
+        neg.setMinWidth(80);
         neg.setMinHeight(40);
+        logb10.setMinWidth(80);
+        logb10.setMinHeight(40);
         label1.setMinHeight(40);
 
 
@@ -100,7 +104,7 @@ public class Calculator extends Application {
         row3.getChildren().addAll(four, five, six, minus);
         row4.getChildren().addAll(seven, eight, nine, multiply);
         row5.getChildren().addAll(clear, zero, equal, divide);
-        row6.getChildren().add(neg);
+        row6.getChildren().addAll(neg, logb10);
         root.getChildren().addAll(row1, row6, row2, row3, row4, row5);
         stage.show();
     }
@@ -183,6 +187,26 @@ public class Calculator extends Application {
                 label1.setText(fullOp);
             });
         }
+        else if (button.getId().equals("logb10")) {
+            button.setOnAction(actionEvent -> {
+                double num;
+                if (stillFirst) {
+                    num = Double.parseDouble(firstNum);
+                }
+                else {
+                    num = Double.parseDouble(secondNum);
+                }
+                double ans = Math.log10(num);
+                String answer = Double.toString(ans);
+                label1.setText(answer);
+                secondNum = "";
+                operation = "";
+                firstNum = answer;
+                fullOp = answer;
+                stillFirst = true;
+                afterEqual = true;
+            });
+        }
         else {
             button.setOnAction(actionEvent -> {
                 if (afterEqual) {
@@ -222,6 +246,7 @@ public class Calculator extends Application {
         buttonFunctionality(divide);
         buttonFunctionality(clear);
         buttonFunctionality(equal);
+        buttonFunctionality(logb10);
     }
 
     public void createButtons() {
@@ -275,5 +300,8 @@ public class Calculator extends Application {
 
         equal = new Button("=");
         equal.setId("=");
+
+        logb10 = new Button("log10");
+        logb10.setId("logb10");
     }
 }
